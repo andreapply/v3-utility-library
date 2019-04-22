@@ -13,7 +13,6 @@
  */
 
 /**
- * @license
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1079,8 +1078,9 @@ ClusterIcon.prototype.onAdd = function() {
   this.div_ = document.createElement('DIV');
   if (this.visible_) {
     var pos = this.getPosFromLatLng_(this.center_);
+    this.div_.className = 'cluster'
     this.div_.style.cssText = this.createCss(pos);
-    this.div_.innerHTML = this.sums_.text;
+    this.div_.innerHTML = '<span>'+this.sums_.text+'</span>';
   }
 
   var panes = this.getPanes();
@@ -1179,7 +1179,7 @@ ClusterIcon.prototype.setSums = function(sums) {
   this.text_ = sums.text;
   this.index_ = sums.index;
   if (this.div_) {
-    this.div_.innerHTML = sums.text;
+    this.div_.innerHTML = '<span>'+sums.text+'</span>';
   }
 
   this.useStyle();
